@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BROKÓŁ.PL 🥦</title>
+
+    <style>
+        /* ===== WYGLĄD STRONY ===== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #10150e;
+            color: #eaffdf;
+            font-family: "Comic Sans MS", sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background: #193c12;
+            padding: 30px 10px;
+            border-bottom: 5px dashed #8cff38;
+        }
+
+        h1 {
+            color: #8cff38;
+            font-size: clamp(38px, 8vw, 70px);
+            text-shadow: 4px 4px black;
+            margin: 5px;
+        }
+
+        header p {
+            color: #d4ffb9;
+            font-size: 18px;
+        }
+
+        nav {
+            background: #080b07;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            background: #24451b;
+            color: white;
+            border: 2px solid #8cff38;
+            border-radius: 8px;
+            padding: 12px 18px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #8cff38;
+            color: black;
+            transform: rotate(-2deg);
+        }
+
+        main {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 15px;
+        }
+
+        section {
+            display: none;
+            background: #1c2918;
+            padding: 25px;
+            border: 3px dashed #8cff38;
+            border-radius: 15px;
+            min-height: 350px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #a4ff65;
+            font-size: 30px;
+        }
+
+        .big {
+            font-size: 80px;
+            margin: 20px;
+        }
+
+        .green-text {
+            color: #8cff38;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 90%;
+            max-width: 550px;
+            padding: 12px;
+            margin: 8px;
+            border-radius: 7px;
+            border: 2px solid #8cff38;
+            background: #10150e;
+            color: white;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .post {
+            background: #10150e;
+            border: 1px solid #8cff38;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+            text-align: left;
+            overflow-wrap: anywhere;
+        }
+
+        .post b {
+            color: #8cff38;
+        }
+
+        #cynamonka img {
+            max-width: 100%;
+            max-height: 400px;
+            border: 4px dashed #8cff38;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            background: #080b07;
+            color: #8cff38;
+        }
+
+        .small {
+            font-size: 12px;
+            color: #a8b99e;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== GÓRA STRONY ===== -->
+
+    <header>
+        <h1>🥦 BROKÓŁ.PL 🥦</h1>
+        <p>ZIELONY CZY NIE, PRZYJDŹ I ŚMIEJ SIĘ XD</p>
+    </header>
+
+    <!-- ===== MENU ===== -->
+
+    <nav>
+        <button onclick="showPage('home')">Główna</button>
+        <button onclick="showPage('cynamonka')">Cynamonka</button>
+        <button onclick="showPage('forum')">Babka Kamień</button>
+    </nav>
+
+    <main>
+
+        <!-- ===== STRONA GŁÓWNA ===== -->
+
+        <section id="home" class="active">
+
+            <h2>HOLO!</h2>
+
+            <p>Witamy na brokuł.pl</p>
+
+            <div class="big">🥦</div>
+
+            <h2>Dlaczego brokuły?</h2>
+
+            <p class="green-text">BO SĄ ZAJEBISTE.</p>
+
+            <button onclick="brokulButton()">
+                NIE KLIKAJ
+            </button>
+
+            <p id="brokul-message"></p>
+
+            <hr>
+
+            <h2>Cytat dnia:</h2>
+
+            <p id="quote">Ładowanie brokuła...</p>
+
+            <button onclick="randomQuote()">
+                LOSUJ CYTAT
+            </button>
+
+            <div class="creator">
+            <img src="jadebil.png" alt="Twórca BROKÓŁ.PL">
+            <p>ON WIE.</p>
+            </div>
+
+        </section>
+
+
+        <!-- ===== CYNAMONKA ===== -->
+
+        <section id="cynamonka">
+
+            <h2>C Y N A M O N K A</h2>
+
+            <p>OTO CYNAMONKA</p>
+
+            <p>Oficjalna zakładka Cynamonki.</p>
+
+            <div class="big">🍥</div>
+
+            <img src="Cynamonka.jpg"
+                 alt="Cynamonka"
+                 onerror="this.style.display='none'">
+
+            <p class="green-text">CYNAMONKA.</p>
+
+            <p>Nie pytaj. Po prostu podziwiaj.</p>
+
+        </section>
+
+
+        <!-- ===== FORUM BABKA KAMIEŃ ===== -->
+
+        <section id="forum">
+
+            <h2>💀 BABKA KAMIEŃ 💀</h2>
+
+            <p>Oficjalne forum BROKÓŁ.PL</p>
+
+            <p>Pisz porąbane historie . Bądź kamieniem.</p>
+
+            <input
+                id="nick"
+                type="text"
+                maxlength="25"
+                placeholder="Twój nick"
+            >
+
+            <br>
+
+            <textarea
+                id="message"
+                maxlength="500"
+                placeholder="Co masz do powiedzenia?"
+            ></textarea>
+
+            <br>
+
+            <button onclick="addPost()">
+                OPUBLIKUJ
+            </button>
+
+            <h2>Ostatnie dyskusje:</h2>
+
+            <div id="posts"></div>
+
+            <p class="small">
+                Forum demonstracyjne. Wpisy są zapisywane
+                tylko w tej przeglądarce.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===== STOPKA ===== -->
+
+    <footer>
+        <h2>🥦 BROKÓŁ.PL 🥦</h2>
+
+        <p>Nie wiemy, co robimy, ale robimy to dobrze.</p>
+
+        <p>© Brokuł Industries 2026</p>
+    </footer>
+
+
+    <!-- ===== JAVASCRIPT ===== -->
+
+    <script>
+
+        // ZMIANA ZAKŁADEK
+
+        function showPage(pageId) {
+
+            const pages = document.querySelectorAll("main section");
+
+            pages.forEach(function(page) {
+                page.classList.remove("active");
+            });
+
+            document.getElementById(pageId).classList.add("active");
+        }
+
+
+        // PRZYCISK BROKUŁA
+
+        function brokulButton() {
+
+            document.getElementById("brokul-message").textContent =
+                "A NIE MÓWIŁEM XDDDD 🥦";
+
+        }
+
+
+        // LOSOWE CYTATY
+
+        const quotes = [
+            "Cynamonka jest zajebista.",
+            "LA PEACE. LA BROKUŁ LA PIZZA.",
+            "Verity ale to frytkocholowy ćpun.",
+            "Czy piątek czy wtorek promocje ma Wiktorek"
+            "Szyszka zrobił trika ha hulajce z palcem w dupie"
+            "Breaking Bad"
+            "Zielony czy nie, przyjdź i śmiej się XD.",
+            "Babka Kamień zawsze tu jest."
+
+        ];
+
+
+        function randomQuote() {
+
+            const number = Math.floor(Math.random() * quotes.length);
+
+            document.getElementById("quote").textContent =
+                quotes[number];
+
+        }
+
+        randomQuote();
+
+
+        // FORUM BABKA KAMIEŃ
+
+        function addPost() {
+
+            const nick = document.getElementById("nick").value.trim();
+
+            const message = document.getElementById("message").value.trim();
+
+            if (nick === "" || message === "") {
+
+                alert("BROKUŁU! UZUPEŁNIJ POLA!");
+
+                return;
+
+            }
+
+            const posts = JSON.parse(
+                localStorage.getItem("brokulPosts") || "[]"
+            );
+
+            posts.unshift({
+                nick: nick,
+                message: message
+            });
+
+            // Maksymalnie 50 wpisów na urządzeniu
+
+            posts.splice(50);
+
+            localStorage.setItem(
+                "brokulPosts",
+                JSON.stringify(posts)
+            );
+
+            document.getElementById("nick").value = "";
+
+            document.getElementById("message").value = "";
+
+            renderPosts();
+
+        }
+
+
+        // WYŚWIETLANIE WPISÓW
+
+        function renderPosts() {
+
+            const posts = JSON.parse(
+                localStorage.getItem("brokulPosts") || "[]"
+            );
+
+            const container = document.getElementById("posts");
+
+            container.replaceChildren();
+
+            posts.forEach(function(post) {
+
+                const box = document.createElement("div");
+
+                box.className = "post";
+
+                const name = document.createElement("b");
+
+                name.textContent = post.nick;
+
+                const content = document.createElement("p");
+
+                content.textContent = post.message;
+
+                box.append(name, content);
+
+                container.appendChild(box);
+
+            });
+
+        }
+
+        renderPosts();
+
+    </script>
+
+</body>
+</html>
